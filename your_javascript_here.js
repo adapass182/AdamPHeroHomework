@@ -1,24 +1,26 @@
 // Variables
 
 var hero = {
-  name: "Adam",
+  name: `Adam`,
   heroic: true,
   inventory: [],
-  health: 10,
+  health: 9001,
   weapon: {
-    type: "bow",
-    damage: 100
+      type: `bow`,
+      damage: 100
   }
 }
 
 // Game logic
 
-var rest = function () {
-
+function rest(creature) {
+  creature.health = 10;
+  return creature;
 }
 
-var pickUpItem = function () {
-
+function pickUpItem(creature, item) {
+  creature.inventory = [item];
+  return creature;
 }
 
 var dealDamage = function () {
