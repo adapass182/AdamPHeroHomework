@@ -34,8 +34,22 @@ function equipWeapon(creature, index) {
   return creature;
 }
 
-var doBattle= function () {
-
+function doBattle(heroicCreature, creature) {
+  switch (heroicCreature.heroic) {
+    case true:
+      consoloe.log("Adam needs to learn a better way of doing this!");
+    case false:
+      return null;
+  }
+  while (heroicCreature.health && creature.health > 0) {
+    dealDamage(heroicCreature, creature);
+    dealDamage(creature, heroicCreature);
+  }
+  if (heroicCreature.health > 0) {
+    return heroicCreature.health;
+  } else {
+    window.alert("Snake? Snake??? SNAAAAKKEE???")
+  }
 }
 
 // UI
