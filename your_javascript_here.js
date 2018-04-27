@@ -23,8 +23,9 @@ function pickUpItem(creature, item) {
   return creature;
 }
 
-var dealDamage = function () {
-
+function dealDamage(attacker, defender) {
+  defender.health = defender.health - attacker.weapon.damage;
+  return defender;
 }
 
 var equipWeapon = function () {
