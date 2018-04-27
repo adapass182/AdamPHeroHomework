@@ -28,8 +28,10 @@ function dealDamage(attacker, defender) {
   return defender;
 }
 
-var equipWeapon = function () {
-
+function equipWeapon(creature, index) {
+  creature.weapon = creature.inventory[index];
+  creature.inventory.splice(index);
+  return creature;
 }
 
 var doBattle= function () {
