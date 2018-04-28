@@ -69,7 +69,6 @@ function doBattleWorks() {
     var creatureStub = { heroic: false, health: 5, weapon: { damage: 1 } }
     try {
         var victor = doBattle(heroStub, creatureStub)
-        console.log(victor.heroic, victor.health, "Hi Adam! It's the test page here!")
         return victor.heroic && victor.health === 8
     } catch (error) {
         return false

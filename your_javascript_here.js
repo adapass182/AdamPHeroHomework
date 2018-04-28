@@ -39,13 +39,9 @@ function doBattle(heroicCreature, creature) {
     return null;
   }
   while (heroicCreature.health > 0 && creature.health > 0) {
-      console.log(heroicCreature.health, creature.health, "Ready players!")
-      dealDamage(heroicCreature, creature)
-      console.log(heroicCreature.health, creature.health, "hero attacks!")
-      if (creature.health > 0) {
-        dealDamage(creature, heroicCreature)
-        console.log(heroicCreature.health, creature.health, "creature attacks!")
-      }
+    dealDamage(heroicCreature, creature)
+    if (creature.health > 0) {
+    dealDamage(creature, heroicCreature)          }
     }
   if (heroicCreature.health > 0) {
     return heroicCreature
