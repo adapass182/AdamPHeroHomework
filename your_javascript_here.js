@@ -35,21 +35,26 @@ function equipWeapon(creature, index) {
 }
 
 function doBattle(heroicCreature, creature) {
-  switch (heroicCreature.heroic) {
-    case true:
-      consoloe.log("Adam needs to learn a better way of doing this!");
-    case false:
-      return null;
+  if (heroicCreature.heroic != true) {
+    return null;
   }
-  while (heroicCreature.health && creature.health > 0) {
-    dealDamage(heroicCreature, creature);
-    dealDamage(creature, heroicCreature);
-  }
-  if (heroicCreature.health > 0) {
-    return heroicCreature.health;
-  } else {
-    window.alert("Snake? Snake??? SNAAAAKKEE???")
-  }
-}
+  while (heroicCreature.health > 0 && creature.health > 0) {
+      console.log(heroicCreature.health, creature.health, "Ready players!")
+      dealDamage(heroicCreature, creature)
+      console.log(heroicCreature.health, creature.health, "hero attacks!")
+      if (creature.health > 0) {
+        dealDamage(creature, heroicCreature)
+        console.log(heroicCreature.health, creature.health, "creature attacks!")
+      }
+    }
+  if (creature.health <= 0) {
+          console.log("creature defeated!")
+          console.log("Remaining health: " + heroicCreature.health)
+          console.log("Hi Adam!" + doBattle(heroStub, creatureStub))
+          return heroicCreature
+      } else {
+      window.alert("Hero defeated!")
+      }
+    }
 
 // UI

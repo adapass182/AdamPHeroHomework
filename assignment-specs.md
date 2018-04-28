@@ -75,7 +75,7 @@ If you've implemented these instructions you console in the browser should read:
     3. modify the creature's `inventory` by removing the `index`th element from it
     4. return the `creature` object from the function
 
-- `doBattle` is a function that takes two creatures, the first of which is a hero, which deal damage to each other until one of them dies.
+- `doBattle` is a function that takes two creatures, the first of which is a hero, which  deal damage to each other until one of them dies.
     1. `doBattle` should have two parameters `heroicCreature` and `creature`. You can assume that both have the same structure as your `hero` object.
     2. make a guard clause which checks if `heroicCreature` is `heroic`. If `heroicCreature` is not `heroic` return `null` from this function.
     3. while `heroicCreature` and `creature` have health above zero they take turns dealingDamage to eachother: `heroicCreature` deals damage to `creature` first. If `creature` survives it deals damage to `heroicCreature`.
