@@ -47,14 +47,11 @@ function doBattle(heroicCreature, creature) {
         console.log(heroicCreature.health, creature.health, "creature attacks!")
       }
     }
-  if (creature.health <= 0) {
-          console.log("creature defeated!")
-          console.log("Remaining health: " + heroicCreature.health)
-          console.log("Hi Adam!" + doBattle(heroStub, creatureStub))
-          return heroicCreature
-      } else {
-      window.alert("Hero defeated!")
-      }
-    }
+  if (heroicCreature.health > 0) {
+    return heroicCreature
+  } else {
+    window.alert("You died!")
+  }
+}
 
 // UI
