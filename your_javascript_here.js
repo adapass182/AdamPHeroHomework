@@ -29,7 +29,7 @@ function rest(creature) {
   creature.health = 10
   console.log("Hero! rested! Current HP: " + creature.health)
   console.log("Equipped weapon: " + Object.values(creature.weapon))
-  updateStats();
+  updateStats()
   return creature;
 }
 
@@ -37,12 +37,6 @@ function pickUpItem(creature, item) {
   creature.inventory.push(item)
   console.log("You picked up a " + weapon1.type + "!")
   console.log(creature.inventory)
-  var itemPickedUp = document.getElementById("bow")
-  var template = document.createElement("img")
-  template.class = "hiddenImage"
-  template.src = "images/white.png"
-  document.body.removeChild(itemPickedUp)
-  document.body.appendChild(template)
   updateStats()
   return creature;
 }
@@ -54,7 +48,8 @@ function dealDamage(attacker, defender) {
 }
 
 function equipWeapon(creature, index) {
-  creature.weapon = creature.inventory[index - 1]
+  creature.weapon = creature.inventory[index]
+  creature.inventory.splice(index);
   console.log(creature.weapon)
   updateStats()
   return creature;
@@ -73,8 +68,6 @@ function doBattle(heroicCreature, creature) {
   }
   if (heroicCreature.health > 0 && creature.health <= 0) {
     window.alert("You won!")
-    var enemyDefeated = document.getElementById("enemy")
-    document.body.removeChild(enemyDefeated)
     updateStats()
     return heroicCreature
   } else {
@@ -89,40 +82,33 @@ function displayStats(name, health, weapon) {
 
 
   // Create individual elements:
-  var nameTag = document.createElement("h1")
+  var nameTag = document.getElementById("heroName")
   nameTag.innerHTML = "Name: " + name
-  var uiContainerDiv1 = document.getElementById("heroName")
-  uiContainerDiv1.appendChild(nameTag)
 
-  var healthTag = document.createElement("h1")
+  var healthTag = document.getElementById("heroHp")
   healthTag.innerHTML = "Current HP: " + health
-  var uiContainerDiv2 = document.getElementById("heroHp")
-  uiContainerDiv2.appendChild(healthTag)
 
-  var weaponTag = document.createElement("h1")
+  var weaponTag = document.getElementById("heroWeaponType")
   weaponTag.innerHTML = "Weapon: " + weapon.type
-  var uiContainerDiv3 = document.getElementById("heroWeaponType")
-  uiContainerDiv3.appendChild(weaponTag)
 
-  var damageTag = document.createElement("h1")
+  var damageTag = document.getElementById("heroWeaponDmg")
   damageTag.innerHTML = "Damage: " + weapon.damage
-  var uiContainerDiv4 = document.getElementById("heroName")
-  uiContainerDiv4.appendChild(damageTag)
-}
 
+}
 
 function displayInventory(heroInventory) {
   var result = ``
   var i = 0
   heroInventory.forEach(function(item) {
-      if (item.type != undefined) {
+    if (item.type != undefined) {
       i++
       result += i + ". " + item.type + " "
-      } else {
+    } else {
       i++
-      result += i + ". " + item
-        }
-  })
+    result += i + ". " + item
+      }
+    })
+  console.log(result)
   var inventoryContainer = document.getElementById("inventory")
   var inventoryTag = document.getElementById("inventoryItem")
   inventoryTag.innerHTML = result

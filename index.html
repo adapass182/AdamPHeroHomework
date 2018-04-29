@@ -11,14 +11,19 @@
         <img class="image" id="bed" src="images/bed.png" alt="bed" onclick="rest(hero)">
         <img class="image" id="bow" src="images/bow.png" alt="Weapon" onclick="pickUpItem(hero, weapon1)">
         <img class="image" id="enemy" src="images/enemy.png" alt="Enemy" onclick="doBattle(hero, bat)">
-        <img class="image" id="backpack" src="images/backpack.png" alt="Backpack" onclick="equipWeapon(hero, window.prompt(`Equip a weapon from your backpack using the numbers from your inventory:`))">
-          <div id="heroName" class="UIconainter">
+        <img class="image" id="backpack" src="images/backpack.png" alt="Backpack" onclick="equipWeapon(hero, window.prompt(`Pick a weapon by number:`))">
+        <div id=UIcontainer>
+          <div id="UI1">
+            <h1 id="heroName" class="UIentry"></h1>
           </div>
-          <div id="heroHp" class="UIconainter">
+          <div id="UI2" class="UIconainter">
+            <h1 id="heroHp" class="UIentry"></h1>
           </div>
-          <div id="heroWeaponType" class="UIconainter">
+          <div id="UI3" class="UIconainter">
+            <h1 id="heroWeaponType" class="UIentry"></h1>
           </div>
-          <div id="heroWeaponDmg" class="UIconainter">
+          <div id="UI4" class="UIconainter">
+            <h1 id="heroWeaponDmg" class="UIentry"></h1>
           </div>
         <div id="inventory">
           <h1>Inventory: </h1>
