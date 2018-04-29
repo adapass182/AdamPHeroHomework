@@ -3,11 +3,15 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link href="styles/styles.css" rel="stylesheet" type="text/css">
         <title>BB homework</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <h1>Good luck! You can do it!</h1>
+        <img class="image" id="bed" src="images/bed.png" alt="bed" onclick="rest(hero)">
+        <img class="image" id="bow" src="images/bow.png" alt="Weapon" onclick="pickUpItem(hero, weapon1)">
+        <img class="image" id="enemy" src="images/enemy.png" alt="Enemy" onclick="doBattle(hero, bat)">
+        <img class="image" id="backpack" src="images/backpack.png" alt="Backpack" onclick="equipWeapon(hero, window.prompt(`Pick a weapon by number:`))">
         <script src="your_javascript_here.js"></script>
         <script src="tests.js"></script>
     </body>

@@ -1,0 +1,25 @@
+
+html {
+  font-size: 40px;
+}
+
+body {
+  display: grid;
+  grid-template-columns: repeat(2, 20%);
+  grid-auto-flow: row;
+  grid-gap: 5%;
+}
+
+.image {
+  display: block;
+  object-fit: cover;
+  width: 80%;
+  max-height: 80%;
+  position: relative;
+  overflow: hidden;
+}
+
+.UI {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
