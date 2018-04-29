@@ -6,20 +6,20 @@ var hero = {
   inventory: [],
   health: 10,
   weapon: {
-      type: `gun`,
+      type: `Gun`,
       damage: 100
   }
 }
 
 var weapon1 = {
-  type: "bow",
+  type: "Bow",
   damage: 6
 }
 
 var bat = {
-  health: 10,
+  health: 19,
   weapon: {
-    damage: 2
+    damage: 1
   }
 }
 
@@ -29,6 +29,7 @@ function rest(creature) {
   creature.health = 10
   console.log("Hero! rested! Current HP: " + creature.health)
   console.log("Equipped weapon: " + Object.values(creature.weapon))
+  displayStats(hero.name, hero.health, hero.weapon);
   return creature;
 }
 
@@ -48,11 +49,12 @@ function equipWeapon(creature, index) {
   creature.weapon = creature.inventory[index]
   creature.inventory.splice(index);
   console.log(creature.weapon)
+  displayStats(hero.name, hero.health, hero.weapon);
   return creature;
 }
 
 function doBattle(heroicCreature, creature) {
-  console.log("Fight!")
+  console.log("Fight! " + creature.health )
   if (heroicCreature.heroic != true) {
     return null;
   }
@@ -64,16 +66,27 @@ function doBattle(heroicCreature, creature) {
   }
   if (heroicCreature.health > 0 && creature.health <= 0) {
     window.alert("You won!")
+    displayStats(hero.name, hero.health, hero.weapon);
     return heroicCreature
   } else {
     window.alert("You died!")
   }
+  return heroicCreature
 }
 
 // UI
 
-function displayStats(name, health, weaponType, weaponDamage) {
-  // 
-  var heroStats = document.createElement("div")
-  heroStats.className = "UI"
+function displayStats(name, health, weapon) {
+
+  // Create individual elements:
+  nameTag = document.getElementById("heroName")
+  nameTag.innerHTML = "Name: " + name
+  healthTag = document.getElementById("heroHp")
+  healthTag.innerHTML = "Current HP: " + health
+  weaponTag = document.getElementById("heroWeaponType")
+  weaponTag.innerHTML = "Weapon : " + weapon.type
+  damageTag = document.getElementById("heroWeaponDmg")
+  damageTag.innerHTML = "Damage : " + weapon.damage
 }
+
+displayStats(hero.name, hero.health, hero.weapon);

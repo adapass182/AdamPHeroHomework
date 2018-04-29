@@ -12,6 +12,20 @@
         <img class="image" id="bow" src="images/bow.png" alt="Weapon" onclick="pickUpItem(hero, weapon1)">
         <img class="image" id="enemy" src="images/enemy.png" alt="Enemy" onclick="doBattle(hero, bat)">
         <img class="image" id="backpack" src="images/backpack.png" alt="Backpack" onclick="equipWeapon(hero, window.prompt(`Pick a weapon by number:`))">
+        <div id=UIcontainer>
+          <div id="UI1">
+            <h1 id="heroName" class="UIentry"></h1>
+          </div>
+          <div id="UI2">
+            <h1 id="heroHp" class="UIentry"></h1>
+          </div>
+          <div id="UI3">
+            <h1 id="heroWeaponType" class="UIentry"></h1>
+          </div>
+          <div id="UI4">
+            <h1 id="heroWeaponDmg" class="UIentry"></h1>
+          </div>
+        </div>
         <script src="your_javascript_here.js"></script>
         <script src="tests.js"></script>
     </body>
