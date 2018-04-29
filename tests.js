@@ -1,5 +1,3 @@
-/*
-
 // This file has tests to help you see how you are doing
 
 function heroExists(){ return typeof hero !== 'undefined' && hero.constructor === Object }
@@ -136,5 +134,3 @@ function runTests(){
 }
 
 runTests()
-
-*/
