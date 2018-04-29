@@ -38,6 +38,7 @@ function pickUpItem(creature, item) {
   console.log("You picked up a " + weapon1.type + "!")
   console.log(creature.inventory)
   updateStats()
+  // Tile doesn't disappear, just replaced by white img. Can improve by disapling onclick function after first click?
   whiteSpace = document.getElementById("bow")
   whiteSpace.src = "images/white.png"
   return creature;
@@ -50,6 +51,7 @@ function dealDamage(attacker, defender) {
 }
 
 function equipWeapon(creature, index) {
+  //TO do: add guard statement that checks if user input is a valid inventory index
   creature.weapon = creature.inventory[index - 1]
   creature.inventory.splice(index);
   console.log(creature.weapon)
@@ -58,6 +60,7 @@ function equipWeapon(creature, index) {
 }
 
 function doBattle(heroicCreature, creature) {
+  // TO DO: creature health didn't reset when doBattle() called again. Solved for now (creature img removed after first calling doBattle())
   console.log("Fight! " + creature.health )
   if (heroicCreature.heroic != true) {
     return null;
@@ -70,6 +73,7 @@ function doBattle(heroicCreature, creature) {
   }
   if (heroicCreature.health > 0 && creature.health <= 0) {
     window.alert("You won!")
+    // Tile doesn't disappear, just replaced by white img. Can improve by disapling onclick function after first click?
     whiteSpace = document.getElementById("enemy")
     whiteSpace.src = "images/white.png"
     updateStats()
@@ -83,7 +87,6 @@ function doBattle(heroicCreature, creature) {
 // UI
 
 function displayStats(name, health, weapon) {
-
 
   // Create individual elements:
   var nameTag = document.getElementById("heroName")
