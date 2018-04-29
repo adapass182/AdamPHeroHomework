@@ -38,6 +38,8 @@ function pickUpItem(creature, item) {
   console.log("You picked up a " + weapon1.type + "!")
   console.log(creature.inventory)
   updateStats()
+  whiteSpace = document.getElementById("bow")
+  whiteSpace.src = "images/white.png"
   return creature;
 }
 
@@ -48,7 +50,7 @@ function dealDamage(attacker, defender) {
 }
 
 function equipWeapon(creature, index) {
-  creature.weapon = creature.inventory[index]
+  creature.weapon = creature.inventory[index - 1]
   creature.inventory.splice(index);
   console.log(creature.weapon)
   updateStats()
@@ -68,6 +70,8 @@ function doBattle(heroicCreature, creature) {
   }
   if (heroicCreature.health > 0 && creature.health <= 0) {
     window.alert("You won!")
+    whiteSpace = document.getElementById("enemy")
+    whiteSpace.src = "images/white.png"
     updateStats()
     return heroicCreature
   } else {
