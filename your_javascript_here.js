@@ -29,8 +29,7 @@ function rest(creature) {
   creature.health = 10
   console.log("Hero! rested! Current HP: " + creature.health)
   console.log("Equipped weapon: " + Object.values(creature.weapon))
-  displayStats(hero.name, hero.health, hero.weapon);
-  displayInventory(creature.inventory);
+  updateStats();
   return creature;
 }
 
@@ -38,20 +37,20 @@ function pickUpItem(creature, item) {
   creature.inventory.push(item)
   console.log("You picked up a " + weapon1.type + "!")
   console.log(creature.inventory)
+  updateStats()
   return creature;
 }
 
 function dealDamage(attacker, defender) {
   defender.health = defender.health - attacker.weapon.damage;
+  updateStats()
   return defender;
 }
 
 function equipWeapon(creature, index) {
-  creature.weapon = creature.inventory[index]
-  creature.inventory.splice(index);
+  creature.weapon = creature.inventory[index - 1]
   console.log(creature.weapon)
-  displayStats(hero.name, hero.health, hero.weapon);
-  displayInventory(hero.inventory);
+  updateStats()
   return creature;
 }
 
@@ -68,8 +67,7 @@ function doBattle(heroicCreature, creature) {
   }
   if (heroicCreature.health > 0 && creature.health <= 0) {
     window.alert("You won!")
-    displayStats(hero.name, hero.health, hero.weapon);
-    displayInventory(hero.inventory);
+    updateStats()
     return heroicCreature
   } else {
     window.alert("You died!")
@@ -95,18 +93,25 @@ function displayStats(name, health, weapon) {
 
 function displayInventory(heroInventory) {
   var result = ``
+  var i = 0
   heroInventory.forEach(function(item) {
-    if (item.type != undefined) {
-      result += item.type + " "
-    } else {
-    result += item
-      }
-    })
-  console.log(result)
+      if (item.type != undefined) {
+      i++
+      result += i + ". " + item.type + " "
+      } else {
+      i++
+      result += i + ". " + item
+        }
+  })
   var inventoryContainer = document.getElementById("inventory")
   var inventoryTag = document.getElementById("inventoryItem")
   inventoryTag.innerHTML = result
   inventoryContainer.appendChild(inventoryTag)
+}
+
+function updateStats() {
+  displayStats(hero.name, hero.health, hero.weapon);
+  displayInventory(hero.inventory);
 }
 
 displayStats(hero.name, hero.health, hero.weapon);
