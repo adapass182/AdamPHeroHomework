@@ -10,7 +10,7 @@ body {
   grid-gap: 5%;
 }
 
-h1 {
+h1, h2 {
   font-size: 0.5rem;
 }
 
@@ -26,6 +26,13 @@ h1 {
 #UIcontainer {
   display: grid;
   grid-template-columns: repeat(2, 30%);
+  grid-auto-flow: row;
+  grid-column-start: span 2
+}
+
+#inventory {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
   grid-auto-flow: row;
   grid-column-start: span 2
 }

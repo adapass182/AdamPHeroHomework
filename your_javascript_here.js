@@ -3,7 +3,7 @@
 var hero = {
   name: `Adam`,
   heroic: true,
-  inventory: [],
+  inventory: ["Stick ", "Hat ", "Clothes "],
   health: 10,
   weapon: {
       type: `Gun`,
@@ -30,6 +30,7 @@ function rest(creature) {
   console.log("Hero! rested! Current HP: " + creature.health)
   console.log("Equipped weapon: " + Object.values(creature.weapon))
   displayStats(hero.name, hero.health, hero.weapon);
+  displayInventory(creature.inventory);
   return creature;
 }
 
@@ -50,6 +51,7 @@ function equipWeapon(creature, index) {
   creature.inventory.splice(index);
   console.log(creature.weapon)
   displayStats(hero.name, hero.health, hero.weapon);
+  displayInventory(hero.inventory);
   return creature;
 }
 
@@ -67,6 +69,7 @@ function doBattle(heroicCreature, creature) {
   if (heroicCreature.health > 0 && creature.health <= 0) {
     window.alert("You won!")
     displayStats(hero.name, hero.health, hero.weapon);
+    displayInventory(hero.inventory);
     return heroicCreature
   } else {
     window.alert("You died!")
@@ -89,4 +92,22 @@ function displayStats(name, health, weapon) {
   damageTag.innerHTML = "Damage : " + weapon.damage
 }
 
+
+function displayInventory(heroInventory) {
+  var result = ``
+  heroInventory.forEach(function(item) {
+    if (item.type != undefined) {
+      result += item.type + " "
+    } else {
+    result += item
+      }
+    })
+  console.log(result)
+  var inventoryContainer = document.getElementById("inventory")
+  var inventoryTag = document.getElementById("inventoryItem")
+  inventoryTag.innerHTML = result
+  inventoryContainer.appendChild(inventoryTag)
+}
+
 displayStats(hero.name, hero.health, hero.weapon);
+displayInventory(hero.inventory);
