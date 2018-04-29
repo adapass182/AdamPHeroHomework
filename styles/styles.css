@@ -23,16 +23,22 @@ h1, h2 {
   overflow: hidden;
 }
 
-#UIcontainer {
-  display: grid;
+.hiddenImage {
+  display: block;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 0;
+  grid-row-end: 1;
+}
+
+.UIcontainer {
+  display: block;
   grid-template-columns: repeat(2, 30%);
   grid-auto-flow: row;
-  grid-column-start: span 2
 }
 
 #inventory {
-  display: grid;
+  display: block;
   grid-template-columns: repeat(2, 50%);
   grid-auto-flow: row;
-  grid-column-start: span 2
 }

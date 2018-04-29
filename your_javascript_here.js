@@ -1,7 +1,7 @@
 // Variables
 
 var hero = {
-  name: `Adam`,
+  name: window.prompt("What is your name?"),
   heroic: true,
   inventory: ["Stick ", "Hat ", "Clothes "],
   health: 10,
@@ -37,6 +37,12 @@ function pickUpItem(creature, item) {
   creature.inventory.push(item)
   console.log("You picked up a " + weapon1.type + "!")
   console.log(creature.inventory)
+  var itemPickedUp = document.getElementById("bow")
+  var template = document.createElement("img")
+  template.class = "hiddenImage"
+  template.src = "images/white.png"
+  document.body.removeChild(itemPickedUp)
+  document.body.appendChild(template)
   updateStats()
   return creature;
 }
@@ -67,6 +73,8 @@ function doBattle(heroicCreature, creature) {
   }
   if (heroicCreature.health > 0 && creature.health <= 0) {
     window.alert("You won!")
+    var enemyDefeated = document.getElementById("enemy")
+    document.body.removeChild(enemyDefeated)
     updateStats()
     return heroicCreature
   } else {
@@ -79,15 +87,27 @@ function doBattle(heroicCreature, creature) {
 
 function displayStats(name, health, weapon) {
 
+
   // Create individual elements:
-  nameTag = document.getElementById("heroName")
+  var nameTag = document.createElement("h1")
   nameTag.innerHTML = "Name: " + name
-  healthTag = document.getElementById("heroHp")
+  var uiContainerDiv1 = document.getElementById("heroName")
+  uiContainerDiv1.appendChild(nameTag)
+
+  var healthTag = document.createElement("h1")
   healthTag.innerHTML = "Current HP: " + health
-  weaponTag = document.getElementById("heroWeaponType")
-  weaponTag.innerHTML = "Weapon : " + weapon.type
-  damageTag = document.getElementById("heroWeaponDmg")
-  damageTag.innerHTML = "Damage : " + weapon.damage
+  var uiContainerDiv2 = document.getElementById("heroHp")
+  uiContainerDiv2.appendChild(healthTag)
+
+  var weaponTag = document.createElement("h1")
+  weaponTag.innerHTML = "Weapon: " + weapon.type
+  var uiContainerDiv3 = document.getElementById("heroWeaponType")
+  uiContainerDiv3.appendChild(weaponTag)
+
+  var damageTag = document.createElement("h1")
+  damageTag.innerHTML = "Damage: " + weapon.damage
+  var uiContainerDiv4 = document.getElementById("heroName")
+  uiContainerDiv4.appendChild(damageTag)
 }
 
 
